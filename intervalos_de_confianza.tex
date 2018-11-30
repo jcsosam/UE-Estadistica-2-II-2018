@@ -1,0 +1,408 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[usenames,dvipsnames,9pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color, colortbl}
+\usepackage{flafter}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsthm,latexsym,array}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{rotating}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{subfigure}
+
+
+\usefonttheme[onlymath]{serif}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+%
+\def\e#1{{\rm e}^{#1}}
+\def\exp#1{{\rm exp}{#1}}
+\def\frac#1#2{{{#1}\over{#2}}}
+\def\binom#1#2{{{#1}\choose{#2}}}
+\def\spot{$\bullet$\hspace{0.1cm}}
+\def\le{\left}
+\def\ri{\right}
+\def\pro{\propto}
+\def\prop{\propto}
+%
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\logit}{logit}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%
+\newcommand\iid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily iid}}}{\sim}}}
+\newcommand\simiid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily iid}}}{\sim}}}
+\newcommand\simind{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily ind}}}{\sim}}}
+\newcommand\eqd{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily d}}}{=}}}
+\newcommand{\ind}[1]{\mathbb{I}\left\{ #1 \right\}}
+\newcommand{\pr}[1]{\mathbb{P}\text{r}\left[#1\right]}
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\expe}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\var}[1]{\mathbb{V}\text{ar}\left[#1\right]}
+\newcommand{\sd}[1]{\text{SD}\left[#1\right]}
+\newcommand{\cov}[1]{\mathbb{C}\text{ov}\left[#1\right]}
+\newcommand{\coefvar}[1]{\text{CV}\left[#1\right]}
+\newcommand{\diag}[1]{\text{diag}\left[#1\right]}
+\newcommand{\expo}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\ex}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\quo}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand{\comi}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\newcommand{\ra}{\sqrt}
+\newcommand{\bs}{\boldsymbol}
+%
+\def\teh{\hat{\theta}}\def\tevh{\hat{\boldsymbol{\theta}}}
+\def\Unif{\small{\mathsf{Unif}}}
+\def\MN{\small{\mathsf{Mult}}}
+\def\Cat{\small{\mathsf{Cat}}}
+\def\Dir{\small{\mathsf{Dir}}}
+\def\DP{\small{\mathsf{DP}}}
+\def\Ber{\small{\mathsf{Ber}}}
+\def\Bin{\small{\mathsf{Bin}}}
+\def\BetaBin{\small{\mathsf{BetaBin}}}
+\def\NegBin{\small{\mathsf{NegBin}}}
+\def\Nor{\small{\mathsf{N}}}
+\def\normal{\small{\mathsf{N}}}
+\def\Bet{\small{\mathsf{Beta}}}
+\def\bet{\small{\mathsf{Beta}}}
+\def\Gamd{\small{\mathsf{Gam}}}
+\def\IGamd{\small{\mathsf{IGam}}}
+\def\IG{\small{\mathsf{IGam}}}
+\def\tdistr{\small{\mathsf{t}}}
+\def\hyphen{\text{\textendash}}
+%%% ----------------------------------------------------------------------
+% FIGURES ----------------------------------------------------------------
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%\graphicspath{{C:/PROJECT/presentation/figs/}}
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+%TITLE PAGE
+\title[Intervalos]{Intervalos de Confianza} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{ }
+%\newline \textbf{JASA}, Vol. 91, No. 433 (Mar., \textbf{1996}), pp. 142--153}
+
+\author[Juan Sosa]{\LARGE{Juan Sosa, PhD}} % Your name
+\institute[Universidad Externado] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+%University of California, Santa Cruz \\ % Your institution for the title page
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.17]{./figs/logo-UE.pdf}
+\end{figure}
+}
+\date{ } % Date, can be changed to a custom date
+
+%\logo{\includegraphics[height=1.4cm]{Grateful_Slug.png}}
+
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+
+
+\begin{document}
+
+\begin{frame}
+
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+%%% OVERVIEW %%%
+%%%%%%%%%%%%%%%%
+
+%\begin{frame}
+%\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+
+\begin{frame}{Proporción poblacional}
+
+\begin{block}{Modelo}
+	$$X_1,X_2,\ldots,X_n\simiid \Ber(\pi)$$
+\end{block}
+
+\begin{block}{Intervalo de confianza (bilaterial)}
+	$$
+	\text{IC}_{100(1-\alpha)\%}\left( \pi \right) = \hat{\pi} \pm z_{1-\alpha/2}\, \sqrt{ \frac{\hat{\pi}(1-\hat{\pi})}{n} }
+	$$
+	Nota: Esta aproximación es apropiada para $n\geq30$, $n\hat{\pi} \geq 5$ y $n(1-\hat{\pi}) \geq 5$.
+\end{block}
+
+\begin{block}{Tamaño de muestra}
+	$$
+	n = \frac{(z_{1-\alpha/2})^2\,\pi_0(1-\pi_0)}{ME^2}
+	$$
+	donde $\pi_0$ es la proporción muestral de una de un estudio piloto (por ejemplo) y $ME$ es el margen de error.
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Media poblacional}
+
+\begin{block}{Modelo}
+	$$X_1,X_2,\ldots,X_n\simiid \Nor(\mu, \sigma^2)$$
+\end{block}
+
+\begin{block}{Intervalo de confianza (bilaterial)}
+		$$
+		\text{IC}_{100(1-\alpha)\%}\left( \mu \right) =  \bar{x} \pm \tdistr_{n-1, 1-\alpha/2}\,\frac{s}{\sqrt{n}}
+		$$
+		Nota: Para $n\geq 30$ se tiene que $\tdistr\approx \Nor(0,1)$ y la población no tiene que ser Normal.
+	\end{block}
+
+\begin{block}{Tamaño de muestra}
+	$$
+	n = \frac{(z_{1-\alpha/2})^2\,\sigma^2_0}{ME^2}
+	$$
+	donde $\sigma^2_0$ es la varianza muestral de un estudio piloto (por ejemplo) y $ME$ es el margen de error.
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Varianza poblacional poblacional}
+
+\begin{block}{Modelo}
+	$$X_1,X_2,\ldots,X_n\simiid \Nor(\mu, \sigma^2)$$
+\end{block}
+
+\begin{block}{Intervalo de confianza (bilateral)}
+	$$
+	\text{IC}_{100(1-\alpha)\%}\left( \sigma^2 \right) = 
+	\left( \frac{(n-1)s^2}{\chi^2_{n-1,1-\alpha/2}} \,;\,  \frac{(n-1)s^2}{\chi^2_{n-1,\alpha/2}} \right)
+	$$
+donde $\chi^2_{n-1}$ denota la distribución chi cuadrado con $n-1$ grados de libertad.
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Diferencia de proporciones poblacional}
+
+\begin{block}{Modelo}
+	Poblaciones independientes:
+	\vspace{-5pt}
+	$$X_1,X_2,\ldots,X_{n_1}\simiid \Ber(\pi_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Ber(\pi_2)$$
+	
+\end{block}
+
+
+\begin{block}{Intervalo de confianza (bilateral)}
+	$$
+	\text{IC}_{100(1-\alpha)\%}\left( \pi_1 - \pi_2 \right) = 
+	\hat{\pi}_1 - \hat{\pi}_2 \pm  z_{1 - \alpha/2} \sqrt{ \frac{\hat{\pi}_1(1-\hat{\pi}_1)}{n_1} + \frac{\hat{\pi}_2(1-\hat{\pi}_2)}{n_2} }
+	$$
+	Nota: Esta aproximación es apropiada para
+	$$n_1,n_2\geq30 \quad n_1\hat{\pi}_1,n_1\hat{\pi}_2 \geq 5 \quad n_1(1-\hat{\pi}_1), n_2(1-\hat{\pi}_2) \geq 5$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Diferencia de medias poblacional}
+
+\begin{block}{Modelo}
+	Poblaciones independientes:
+	\vspace{-5pt}
+	$$X_1,X_2,\ldots,X_{n_1}\simiid \Nor(\mu_1,\sigma^2_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Nor(\mu_2,\sigma^2_2)$$
+	
+\end{block}
+
+
+\begin{block}{Intervalo de confianza (bilateral) bajo homogenedidad ($\sigma^2_1 = \sigma^2_2$)}
+	$$
+	\text{IC}_{100(1-\alpha)\%}\left( \mu_1-\mu_2 \right) = 
+	\bar{x_1} - \bar{x}_2  \pm t_{n_1+n_2-2,1-\alpha/2}\, s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+	$$
+	donde
+	$$
+	s^2_p = \frac{(n_1-1)s^2_1 + (n_2-1)s^2_2}{n_1 + n_2 -2}
+	$$
+	es la varianza conjugada de las muestras.
+	
+	Nota: Para $n\geq 30$ se tiene que $\tdistr\approx \Nor(0,1)$ y la población no tiene que ser Normal.
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Diferencia de medias poblacional}
+
+\begin{block}{Modelo}
+	Poblaciones independientes:
+	\vspace{-5pt}
+	$$X_1,X_2,\ldots,X_{n_1}\simiid \Nor(\mu_1,\sigma^2_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Nor(\mu_2,\sigma^2_2)$$
+	
+\end{block}
+
+
+\begin{block}{Intervalo de confianza (bilateral) bajo heterogenedidad ($\sigma^2_1 \neq \sigma^2_2$)}
+	$$
+		\text{IC}_{100(1-\alpha)\%}\left( \mu_1-\mu_2 \right) = 
+	\bar{x_1} - \bar{x}_2  \pm t_{\nu,1-\alpha/2}\,\sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}
+	$$
+	donde
+	$$
+	\nu = \frac{\left(\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}\right)^2}{\frac{1}{n_1-1}\left(\frac{s^2_1}{n_1}\right)^2 + \frac{1}{n_2-1}\left(\frac{s^2_2}{n_2}\right)^2}
+	$$
+	corresponde a los grados de libertad.
+	
+	Nota: Para $n\geq 30$ se tiene que $\tdistr\approx \Nor(0,1)$ y la población no tiene que ser Normal.
+\end{block}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Cociente de varianzas poblacional}
+
+\begin{block}{Modelo}
+	Poblaciones independientes:
+	\vspace{-5pt}
+	$$X_1,X_2,\ldots,X_{n_1}\simiid \Nor(\mu_1,\sigma^2_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Nor(\mu_2,\sigma^2_2)$$
+	
+\end{block}
+
+\begin{block}{Intervalo de confianza (bilateral)}
+$$
+\text{IC}_{100(1-\alpha)\%}\left(\frac{\sigma^2_1}{\sigma^2_2}\right) = \left(F_{\alpha/2,n_2-1,n_1-1}\frac{s^2_1}{s^2_2} ; F_{1-\alpha/2,n_2-1,n_1-1}\frac{s^2_1}{s^2_2} \right)
+$$
+donde $F_{n_2-1,n_1-1}$ denota la distribución $F$ con $n_2-1$ grados de libertad en el numerador y $n_1-1$ grados de libertad en el denominador.
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Distribución $F$ (Fisher-Snedecor)}
+
+\begin{block}{ }
+La función de densidad de una variable aleatoria $F$ con $r_1$ grados de libertad del numerador y $r_2$ grados de libertad del denominador es:
+$$
+f(x) = \dfrac{(r_1/r_2)^{r_1/2}\Gamma[(r_1+r_2)/2]x^{(r_1/2)-1}}{\Gamma[r_1/2]\Gamma[r_2/2][1+(r_1x/r_2)]^{(r_1+r_2)/2}}\qquad x\geq 0
+$$
+donde $\Gamma(z) = \int_0^\infty t^{z-1}\ex{-t}\,\text{d}t$ es la función gamma.
+\end{block}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.13]{./figs/distr_F.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\end{document} 

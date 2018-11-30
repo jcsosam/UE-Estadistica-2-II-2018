@@ -1,0 +1,800 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[usenames,dvipsnames,9pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color, colortbl}
+\usepackage{flafter}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsthm,latexsym,array}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{rotating}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{subfigure}
+\usepackage{verbatim}
+
+\usefonttheme[onlymath]{serif}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+%
+\def\e#1{{\rm e}^{#1}}
+\def\exp#1{{\rm exp}{#1}}
+\def\frac#1#2{{{#1}\over{#2}}}
+\def\binom#1#2{{{#1}\choose{#2}}}
+\def\spot{$\bullet$\hspace{0.1cm}}
+\def\le{\left}
+\def\ri{\right}
+\def\pro{\propto}
+\def\prop{\propto}
+%
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\logit}{logit}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%
+\newcommand\iid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily iid}}}{\sim}}}
+\newcommand\simiid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily iid}}}{\sim}}}
+\newcommand\simind{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily ind}}}{\sim}}}
+\newcommand\eqd{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily d}}}{=}}}
+\newcommand{\ind}[1]{\mathbb{I}\left\{ #1 \right\}}
+\newcommand{\pr}[1]{\mathbb{P}\text{r}\left[#1\right]}
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\expe}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\var}[1]{\mathbb{V}\text{ar}\left[#1\right]}
+\newcommand{\sd}[1]{\text{SD}\left[#1\right]}
+\newcommand{\cov}[1]{\mathbb{C}\text{ov}\left[#1\right]}
+\newcommand{\coefvar}[1]{\text{CV}\left[#1\right]}
+\newcommand{\diag}[1]{\text{diag}\left[#1\right]}
+\newcommand{\expo}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\ex}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\quo}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand{\comi}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\newcommand{\ra}{\sqrt}
+\newcommand{\bs}{\boldsymbol}
+%
+\def\Unif{\small{\mathsf{Unif}}}
+\def\MN{\small{\mathsf{Mult}}}
+\def\Cat{\small{\mathsf{Cat}}}
+\def\Dir{\small{\mathsf{Dir}}}
+\def\DP{\small{\mathsf{DP}}}
+\def\Ber{\small{\mathsf{Ber}}}
+\def\Bin{\small{\mathsf{Bin}}}
+\def\BetaBin{\small{\mathsf{BetaBin}}}
+\def\NegBin{\small{\mathsf{NegBin}}}
+\def\Nor{\small{\mathsf{N}}}
+\def\normal{\small{\mathsf{N}}}
+\def\Bet{\small{\mathsf{Beta}}}
+\def\bet{\small{\mathsf{Beta}}}
+\def\Gamd{\small{\mathsf{Gam}}}
+\def\IGamd{\small{\mathsf{IGam}}}
+\def\IG{\small{\mathsf{IGam}}}
+\def\tdistr{\small{\mathsf{t}}}
+\def\hyphen{\text{\textendash}}
+%%% ----------------------------------------------------------------------
+% FIGURES ----------------------------------------------------------------
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%\graphicspath{{C:/PROJECT/presentation/figs/}}
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+%TITLE PAGE
+\title{Pruebas de Hipótesis} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{ }
+%\newline \textbf{JASA}, Vol. 91, No. 433 (Mar., \textbf{1996}), pp. 142--153}
+
+\author[Juan Sosa]{\LARGE{Juan Sosa, PhD}} % Your name
+\institute[Universidad Externado] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+%University of California, Santa Cruz \\ % Your institution for the title page
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.17]{./figs/logo-UE.pdf}
+\end{figure}
+}
+\date{ } % Date, can be changed to a custom date
+
+%\logo{\includegraphics[height=1.4cm]{Grateful_Slug.png}}
+
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+
+\begin{document}
+
+\begin{frame}
+
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+
+%\begin{frame}
+%\frametitle{Resumen} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+
+\section{Introducción}
+
+\begin{frame}{Terminología}
+
+\begin{block}{Hipótesis estadística}
+\textbf{Aseveración} (afirmación) acerca de uno o más \textbf{parámetros} poblacionales.
+\begin{itemize}
+  \item Hipótesis \textbf{simple}: $H:\mu = \mu_0$.
+  \item Hipótesis \textbf{compuesta}: $H:\mu \geq \mu_0$, $H:\mu \leq \mu_0$, $H:\mu > \mu_0$, $H:\mu < \mu_0$, $H:\mu \neq \mu_0$.
+  \item $\mu_0$ se denomina \textbf{valor hipotético}.
+\end{itemize}
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\textbf{Arreglo de dos hipótesis} denominas \textbf{hipótesis nula} e \textbf{hipótesis alternativa}.
+\begin{itemize}
+  \item $H_0:\mu \leq \mu_0$ frente a $H_1:\mu > \mu_0$.
+  \item $H_0:\mu \geq \mu_0$ frente a $H_1:\mu < \mu_0$.
+  \item $H_0:\mu = \mu_0$ frente a $H_1:\mu \neq \mu_0$.
+\end{itemize}
+\end{block}
+
+\begin{block}{Objetivo}
+Establecer si hay \textbf{suficiente evidencia} en la realización de una muestra aleatoria para \textbf{rechazar} o \textbf{no rechazar} la \textbf{hipótesis nula}. ¿Cuál hipótesis explica mejor los datos?
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Terminología}
+
+\begin{block}{Tipos de error}
+\begin{itemize}
+  \item Error tipo 1: \textbf{Rechazar} la hipótesis nula cuando ésta es cierta.
+  \item Error tipo 2: \textbf{No rechazar} la hipótesis nula cuando ésta es falsa.
+\end{itemize}
+\end{block}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.25]{./figs/errores.pdf}
+\end{figure}
+
+\begin{block}{Nivel de significativa}
+\begin{itemize}
+  \item \textbf{Probabilidad} de cometer el \textbf{error tipo 1}: $$\alpha = \pr{\text{Error tipo 1}} = \pr{\text{Rechazar $H_0$}\mid H_0}$$
+  \item El nivel de significativa usualmente \textbf{se fija de antemano} a 0.05 o 0.01.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Terminología}
+
+\begin{block}{Analogía}
+$$H_0:\text{El acusado es \textbf{inocente}}\quad\text{frente a}\quad H_1:\text{El acusado es \textbf{culpable}}$$
+
+El acusado se considera inocente hasta que se demuestre lo contrario más allá de cualquier duda razonable.
+\end{block}
+
+
+\begin{block}{Rechazar $H_0$}
+Se ha encontrado algo en la muestra tan improbable que ocurra si $H_0$ es cierta, que obliga al investigador a favorecer $H_1$ (rechazar $H_0$).
+\end{block}
+
+\begin{block}{La ciencia es conservadora!}
+\begin{itemize}
+  \item Se considera mejor, equivocadamente no rechazar, que equivocadamente rechazar el estado actual del conocimiento ($H_0$).
+  \item $H_0$ se mantiene a menos de que haya suficiente evidencia para revocarla.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Procedimiento de prueba (test)}
+
+\begin{block}{¿Cómo decidir si se debe rechazar o no la hipótesis nula?}
+\begin{enumerate}[1.]
+  \item Establecer el \textbf{sistema de hipótesis} de interés y el \textbf{nivel de significancia}.
+  \item Calcular el \textbf{estadístico de prueba}.
+  \item Establecer la \textbf{región crítica} o el \textbf{valor} $\boldsymbol{p}$.
+  \item Tomar la \textbf{decisión}.
+  \item {\color{blue} \textbf{Interpretar los resultados!}}
+\end{enumerate}
+\end{block}
+
+
+\begin{block}{¿Cómo tomar la decisión?}
+
+Si el estadístico de prueba pertenece a la región crítica, entonces se rechaza $H_0$.
+
+Si el valor $p$ es menor que $\alpha$, entonces se rechaza $H_0$. 
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Pruebas de hipótesis para la media poblacional}
+
+\begin{block}{Modelo}
+$$X_1,X_2,\ldots,X_n\simiid \Nor(\mu, \sigma^2)$$
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\mu\leq\mu_0\quad\text{frente a}\quad H_1:\mu > \mu_0 $\\
+$ H_0:\mu\geq\mu_0\quad\text{frente a}\quad H_1:\mu < \mu_0 $\\
+$ H_0:\mu=\mu_0   \quad\text{frente a}\quad H_1:\mu \neq \mu_0 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+t=\frac{\bar{X} - \mu_0}{S/\sqrt{n}}\sim \tdistr_{n-1}
+$$
+Nota: Para $n\geq 30$ se tiene que $\tdistr_{n-1}\approx \Nor(0,1)$ y la población no tiene que ser Normal.
+\end{block}
+
+\begin{block}{Región de rechazo}
+$$
+\text{Rechazar $H_0$ si }
+\left\{
+  \begin{array}{ll}
+     t  \,\,\,> \tdistr_{1-\alpha,n-1}, & \hbox{si $H_1:\mu > \mu_0$;} \\
+     t  \,\,\,< \tdistr_{\alpha,n-1},   & \hbox{si $H_1:\mu < \mu_0$;} \\
+    |t| > \tdistr_{1-\alpha/2,n-1},     & \hbox{si $H_1:\mu \neq \mu_0$.}
+  \end{array}
+\right.
+$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Valor $p$}
+
+\begin{block}{Definición}
+  $$p = \pr{\text{Observar datos \textbf{tan o más extremos} en dirección de $H_1$}\mid H_0}$$
+Probabilidad de que el azar produzca una \textbf{coincidencia al menos tan extraordinaria} como el fenómeno observado, bajo la hipótesis nula.
+\end{block}
+
+\begin{block}{Observación}
+Rechazar $H_0$ siempre que $p <\alpha$.
+
+\vspace{3pt}
+Se ha observado algo que es \textbf{tan poco probable que ocurra} si la hipótesis nula es cierta que hace dudar seriamente que realmente sea cierta.
+\end{block}
+
+\begin{block}{Calculo del valor $p$ para la media poblacional}
+  $$
+  p =
+\left\{
+  \begin{array}{ll}
+     \pr{\tdistr_{n-1} > t},       & \hbox{si $H_1:\mu > \mu_0$;} \\
+     \pr{\tdistr_{n-1} < t},       & \hbox{si $H_1:\mu < \mu_0$;} \\
+     2\,\pr{\tdistr_{n-1} > |t|},  & \hbox{si $H_1:\mu \neq \mu_0$.}
+  \end{array}
+\right.
+  $$
+
+\vspace{3pt}
+Nota: Para $n\geq 30$ se tiene que $\tdistr_{n-1}\approx \Nor(0,1)$.
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Pruebas de hipótesis para la media poblacional}
+	Con propósitos de acreditación institucional, se quiere comprobar si la media de las calificaciones promedio de todos los estudiantes de una Facultad difiere de 4.0. \\
+	\vspace{5pt}
+	
+	Para tal fin, se toma una muestra aleatoria de estudiantes de la Facultad y se registra la calificación promedio del semestre inmediatamente anterior de cada estudiante (ver los datos correspondientes en \texttt{PROM.txt}).\\
+	\vspace{5pt}
+	
+	Usando un nivel de significancia de 5\%, probar el sistema de hipótesis correspondiente.
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Pruebas de hipótesis para la proporción poblacional}
+
+\begin{block}{Modelo}
+	$$X_1,X_2,\ldots,X_n\simiid \Ber(\pi)$$
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+	\centering
+	$ H_0:\pi\leq\pi_0\quad\text{frente a}\quad H_1:\pi > \pi_0 $\\
+	$ H_0:\pi\geq\pi_0\quad\text{frente a}\quad H_1:\pi < \pi_0 $\\
+	$ H_0:\pi=\pi_0   \quad\text{frente a}\quad H_1:\pi \neq \pi_0 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+	$$
+	z=\frac{\hat{\pi} - \pi_0}{\sqrt{\frac{\pi_0(1-\pi_0)}{n}}}\approx \Nor(0,1)
+	$$
+	Nota: Esta aproximación es apropiada para $n\geq30$, $n\hat{\pi} \geq 5$ y $n(1-\hat{\pi}) \geq 5$.
+\end{block}
+
+\begin{block}{Región de rechazo}
+	$$
+	\text{Rechazar $H_0$ si }
+	\left\{
+	\begin{array}{ll}
+	z  \,\,\,> z_{1-\alpha}, & \hbox{si $H_1:\pi > \pi_0$;} \\
+	z  \,\,\,< z_{\alpha},   & \hbox{si $H_1:\pi < \pi_0$;} \\
+	|z| > z_{1-\alpha/2},     & \hbox{si $H_1:\pi \neq \pi_0$.}
+	\end{array}
+	\right.
+	$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Pruebas de hipótesis para la proporción poblacional}
+	Hacer trampa ha sido una preocupación del decano de la Facultad de Negocios de Bayview University
+	por muchos años. Algunos miembros de la Facultad de negocios en la Universidad creen que hacer trampa es más
+	extendido en Bayview que en otras universidades, mientras que otros miembros de la Facultad piensan que
+	hacer trampa no es un problema importante en la universidad. Para resolver algunos de estos problemas, el decano
+	encargó un estudio para evaluar el comportamiento ético actual de los estudiantes de negocios en Bayview.
+	Como parte de este estudio, se administró una encuesta de salida anónima a una muestra de 90 
+	estudiantes de la clase de graduación de 2009. Las respuestas a las preguntas están dadas en \texttt{BAYVIEW.txt}
+	en relación a tres tipos de trampas.\\
+	
+	\vspace{5pt}
+	
+
+Realizar una prueba de hipótesis para determinar si la proporción de estudiantes de negocios en
+		La Universidad Bayview que estuvo involucrada en algún tipo de trampa es menor que la de
+		estudiantes de negocios en otras instituciones según lo informado por \textit{Chronicle of Higher
+			Eudcation} (el artículo asegura que 56\% de los estudiantes de negocios hacen trampa en algún momento de su carrera académica).
+		
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Pruebas de hipótesis para la varianza poblacional}
+
+\begin{block}{Modelo}
+$$X_1,X_2,\ldots,X_n\simiid \Nor(\mu, \sigma^2)$$
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\sigma^2\leq\sigma^2_0\quad\text{frente a}\quad H_1:\sigma^2 > \sigma^2_0 $\\
+$ H_0:\sigma^2\geq\sigma^2_0\quad\text{frente a}\quad H_1:\sigma^2 < \sigma^2_0 $\\
+$ H_0:\sigma^2=\sigma^2_0   \quad\text{frente a}\quad H_1:\sigma^2 \neq \sigma^2_0 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+\chi^2=\frac{(n-1)S^2}{\sigma^2_0}\sim \chi^2_{n-1}
+$$
+\end{block}
+
+\begin{block}{Región de rechazo}
+$$
+\text{Rechazar $H_0$ si }
+\left\{
+  \begin{array}{ll}
+     \chi^2  >  \chi^2_{1-\alpha,n-1}, & \hbox{si $H_1:\sigma^2 > \sigma^2_0$;} \\
+     \chi^2  <  \chi^2_{\alpha,n-1},   & \hbox{si $H_1:\sigma^2 < \sigma^2_0$;} \\
+      \chi^2 <  \chi^2_{\alpha/2,n-1}\text{ o }\chi^2 >  \chi^2_{1-\alpha/2,n-1},     & \hbox{si $H_1:\sigma^2 \neq \sigma^2_0$.}
+  \end{array}
+\right.
+$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Pruebas de hipótesis para la varianza poblacional}
+A fines de 2008, la variación en los rendimientos semestrales de bonos gubernamentales en el extranjero era
+$\sigma^2=0.70$. Un grupo de inversores se reunió en ese momento para analizar las tendencias futuras de
+rendimientos en el exterior. Algunos esperaban que la variabilidad en los rendimientos de los bonos en el extranjero aumentara y otros
+tomaron la posición opuesta. Los datos dados en\texttt{ YIELDS.txt} corresponden a los rendimientos semestrales de 12 países desde el 6 de marzo de 2009 (\textit{Barron's}, 9 de marzo de 2009).\\
+\vspace{5pt}
+
+Desarrollar y probar la hipótesis para comprobar si los datos indican que la variabilidad en los
+los rendimientos han cambiado desde finales de 2008. Usar un nivel de significancia del 5\%.
+
+\end{block}
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Pruebas de hipótesis para la diferencia de proporciones poblacional}
+
+\begin{block}{Modelo}
+Poblaciones independientes:
+\vspace{-5pt}
+$$X_1,X_2,\ldots,X_{n_1}\simiid \Ber(\pi_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Ber(\pi_2)$$
+
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\pi_1-\pi_2\leq \delta_0 \quad\text{frente a}\quad H_1:\pi_1-\pi_2 > \delta_0 $\\
+$ H_0:\pi_1-\pi_2\geq \delta_0 \quad\text{frente a}\quad H_1:\pi_1-\pi_2 < \delta_0 $\\
+$ H_0:\pi_1-\pi_2 =   \delta_0 \quad\text{frente a}\quad H_1:\pi_1-\pi_2 \neq \delta_0 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+z=\frac{\hat{\pi}_1 - \hat{\pi}_2 - \delta_0}{\sqrt{ \hat{\pi}(1-\hat{\pi})\left(\frac{1}{n_1} + \frac{1}{n_2}\right) }}\approx \Nor(0,1)\qquad\hat{\pi} = \frac{x_1 + x_2}{n_1+n_2}
+$$
+Nota: Esta aproximación es apropiada para
+$$n_1,n_2\geq30 \quad n_1\hat{\pi}_1,n_1\hat{\pi}_2 \geq 5 \quad n_1(1-\hat{\pi}_1), n_2(1-\hat{\pi}_2) \geq 5$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Pruebas de hipótesis para la diferencia de proporciones poblacional}
+
+Para comparar la aceptación de una medida económica en dos universidades se toma una muestra aleatoria en cada una obteniéndose los dados en \texttt{ESTEC.txt}. 
+\vspace{5pt}
+
+Probar si hay diferencias significativas entre la proporción de estudiantes que aprueban la medida. Usar un nivel de significancia de 5\%.
+
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Pruebas de hipótesis para el cociente de varianzas poblacional}
+
+\begin{block}{Modelo}
+Poblaciones independientes:
+\vspace{-5pt}
+$$X_1,X_2,\ldots,X_{n_1}\simiid \Nor(\mu_1,\sigma^2_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Nor(\mu_2,\sigma^2_2)$$
+
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\sigma^2_1/\sigma^2_2\leq 1 \quad\text{frente a}\quad H_1:\sigma^2_1/\sigma^2_2 > 1 $\\
+$ H_0:\sigma^2_1/\sigma^2_2\geq 1 \quad\text{frente a}\quad H_1:\sigma^2_1/\sigma^2_2 < 1 $\\
+$ H_0:\sigma^2_1/\sigma^2_2 =   1 \quad\text{frente a}\quad H_1:\sigma^2_1/\sigma^2_2 \neq 1 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+f=\frac{s_1^2}{s_2^2}\sim F_{n_1-1,n_2-1}
+$$
+Nota: Esta prueba es indispensable antes de realizar una prueba de hipótesis sobre la diferencia de medias.
+
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Pruebas de hipótesis para la diferencia de medias poblacional}
+
+\begin{block}{Modelo}
+	Poblaciones independientes:
+	\vspace{-5pt}
+$$X_1,X_2,\ldots,X_{n_1}\simiid \Nor(\mu_1,\sigma^2_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Nor(\mu_2,\sigma^2_2)$$
+
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\mu_1-\mu_2\leq \delta_0 \quad\text{frente a}\quad H_1:\mu_1-\mu_2 > \delta_0 $\\
+$ H_0:\mu_1-\mu_2\geq \delta_0 \quad\text{frente a}\quad H_1:\mu_1-\mu_2 < \delta_0 $\\
+$ H_0:\mu_1-\mu_2 =   \delta_0 \quad\text{frente a}\quad H_1:\mu_1-\mu_2 \neq \delta_0 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+t=\frac{\bar{x_1} - \bar{x}_2 - \delta_0}{s_p\sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}\sim t_{n_1+n_2-2}
+$$
+Nota: Este estadístico de prueba está construido bajo el supuesto de homogeneidad ($\sigma^2_1=\sigma^2_2$)
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Pruebas de hipótesis para la diferencia de medias poblacional (cont.)}
+
+\begin{block}{Modelo}
+		Poblaciones independientes:
+	\vspace{-5pt}
+$$X_1,X_2,\ldots,X_{n_1}\simiid \Nor(\mu_1,\sigma^2_1)\qquad Y_1,Y_2,\ldots,Y_{n_2}\simiid \Nor(\mu_2,\sigma^2_2)$$
+
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\mu_1-\mu_2\leq \delta_0 \quad\text{frente a}\quad H_1:\mu_1-\mu_2 > \delta_0 $\\
+$ H_0:\mu_1-\mu_2\geq \delta_0 \quad\text{frente a}\quad H_1:\mu_1-\mu_2 < \delta_0 $\\
+$ H_0:\mu_1-\mu_2 =   \delta_0 \quad\text{frente a}\quad H_1:\mu_1-\mu_2 \neq \delta_0 $
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+t=\frac{\bar{x_1} - \bar{x}_2 - \delta_0}{\sqrt{\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}}}\sim t_{\nu}
+\qquad
+\nu = \frac{\left(\frac{s^2_1}{n_1} + \frac{s^2_2}{n_2}\right)^2}{\frac{1}{n_1-1}\left(\frac{s^2_1}{n_1}\right)^2 + \frac{1}{n_2-1}\left(\frac{s^2_2}{n_2}\right)^2}
+$$
+Nota: Este estadístico de prueba está construido bajo el supuesto de heterogeneidad ($\sigma^2_1\neq\sigma^2_2$)
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Pruebas de hipótesis para la diferencia de medias poblacional}
+Millones de inversores compran fondos de inversión, eligiendo entre miles de posibilidades. 
+Algunos fondos se pueden comprar directamente desde bancos u otras instituciones financieras, mientras que otros deben comprarse a través de intermediarios,
+que cobran una tarifa por este servicio. Esto plantea la pregunta: ¿pueden los inversores mejorar
+comprando fondos directamente que mediante la compra de fondos a través de corredores? 
+\vspace{5pt}
+
+Para responder esta pregunta, un grupo de investigadores tomaron muestras al azar de las declaraciones anuales
+de fondos de inversión que se pueden adquirir directamente y fondos de inversión que se compran
+a través de corredores y registró los rendimientos anuales netos, que corresponden los rendimientos de la inversión
+después de deducir todas las tarifas relevantes (ver los datos en \texttt{PUR.txt}).
+\vspace{5pt}
+
+¿Es posible concluir con un nivel de significancia del 5\% que los fondos comprados directamente superan
+fondos mutuos comprados a través de corredores?
+\end{block}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Prueba chi cuadrado de bondad de ajuste}
+
+\begin{block}{Experimento multinomial}
+	\begin{itemize}
+		\item Número fijo $n$ de repeticiones.
+		\item El resultado de cada ensayo se puede clasificar en una de las $k$ categorías.
+		\item La probabilidad $\pi_i$ de que el resultado caerá en la categoría $i$ permanece constante
+		para cada prueba. Además, $\pi_1+\pi_2+\ldots+\pi_k = 1$.
+		\item Cada ensayo del experimento es independiente de los otros ensayos.
+	\end{itemize}
+\end{block}
+
+\begin{block}{Sistema de hipótesis}
+\centering
+$ H_0:\pi_1 = \pi_1^0,\ldots,\pi_k = \pi_k^0$\\
+frente a\\
+$H_1:\text{ al menos un $\pi_i$ no es igual al valor especificado}$
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+$$
+\chi^2 = \sum_{i=1}^{k}\frac{(f_i-e_i)^2}{e_i}\sim\chi^2_{k-1}
+$$
+donde las $f_i$ y las $e_i = n\pi_i^0$ son las frecuencias (absolutas) observadas y esperadas, respectivamente. 
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Prueba chi cuadrado de bondad de ajuste}
+Los gerentes financieros están interesados en el
+velocidad con la cual los clientes que hacen compras
+a crédito paguen sus cuentas. Además de calcular
+el número promedio de días que las cuentas pendientes de pago
+(llamadas cuentas por cobrar) permanecen pendientes,
+a menudo preparan un cronograma de seguimiento. Un cronograma de seguimiento
+clasifica las cuentas por cobrar pendientes de acuerdo
+al tiempo que ha transcurrido desde la facturación y
+registra la proporción de cuentas por cobrar
+perteneciente a cada clasificación.
+\vspace{5pt}
+
+Una gran empresa
+determinó su cronograma de seguimiento durante los últimos 5 años:
+\begin{center}
+	\begin{tabular}{l|c}
+		Número de días & Por cobrar (\%) \\
+		0-14     & .72  \\
+		15-29    & .15  \\
+		30-59    & .10  \\
+		60 y más & .03  \\
+	\end{tabular}
+\end{center}
+
+A la compañía le gustaría
+saber si en el presente año el
+cronograma de seguimiento a cambiado significativamente. Para tal fin, se tomó muestra aleatoria de 250 cuentas y fueron clasificadas de acuerdo con estas categorías. El conjunto de datos esta disponible en \texttt{ACOUNTS.txt}. Usar una confiabilidad del 95\%.
+\end{block}
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Prueba chi cuadrado de independencia}
+
+
+\begin{block}{Sistema de hipótesis}
+	\centering
+	$ H_0:$ Las variables son independientes\\
+	frente a\\
+	$H_1:$ Las variables son dependientes
+\end{block}
+
+\begin{block}{Estadístico de prueba y distribución probabilística de referencia}
+	$$
+	\chi^2 = \sum_{i=1}^{f}\sum_{j=1}^{c}\frac{(f_{ij}-e_{ij})^2}{e_{ij}}\sim\chi^2_{(f-1)(c-1)}
+	$$
+	donde las $f_{ij}$ y las $e_{ij} = n_{i\cdot}\,n_{\cdot j}/n$ son las frecuencias (absolutas) observadas y esperadas, respectivamente. 
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Ejemplo}
+
+\begin{block}{Prueba chi cuadrado de independencia}
+Después de un análisis exhaustivo del mercado,
+un editor ha segmentado el mercado en tres general
+enfoques para enseñar estadística aplicada. Estos son
+(1) uso de una computadora y software estadístico con
+sin cálculos manuales, (2) enseñanza tradicional
+de conceptos y solución de problemas a mano,
+y (3) enfoque matemático con énfasis en
+derivaciones y pruebas. El editor quería
+saber si este mercado podría ser segmentado
+con los antecedentes educativos del
+instructor. 
+\vspace{5pt}
+
+Como resultado, el editor organizó
+una encuesta que preguntó a 195 profesores de negocios y
+estadística de economía para informar su enfoque a
+enseñanza y cuál de las siguientes categorías
+representa su más alto grado:
+1. Negocios (MBA o doctorado en negocios)
+2. Economía
+3. Matemáticas o ingeniería
+4. Otro
+¿Existen diferencias significativas
+en el tipo de grado entre los tres enfoques enseñanzas? Si es así, ¿cómo puede el editor usar esto?
+El conjunto de datos esta disponible en \texttt{INDEP.txt}. Usar una confiabilidad del 95\%.
+\end{block}
+
+
+\end{frame}
+
+
+\end{document} 

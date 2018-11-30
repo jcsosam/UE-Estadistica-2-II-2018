@@ -1,0 +1,470 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[usenames,dvipsnames,9pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color, colortbl}
+\usepackage{flafter}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsthm,latexsym,array}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{rotating}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{subfigure}
+
+
+\usefonttheme[onlymath]{serif}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+%
+\def\e#1{{\rm e}^{#1}}
+\def\exp#1{{\rm exp}{#1}}
+\def\frac#1#2{{{#1}\over{#2}}}
+\def\binom#1#2{{{#1}\choose{#2}}}
+\def\spot{$\bullet$\hspace{0.1cm}}
+\def\le{\left}
+\def\ri{\right}
+\def\pro{\propto}
+\def\prop{\propto}
+%
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\logit}{logit}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%
+\newcommand\iid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily IID}}}{\sim}}}
+\newcommand\sima{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily A}}}{\sim}}}
+\newcommand\simiid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily IID}}}{\sim}}}
+\newcommand\simind{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily IND}}}{\sim}}}
+\newcommand\eqd{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily d}}}{=}}}
+\newcommand{\ind}[1]{\mathbb{I}\left\{ #1 \right\}}
+\newcommand{\pr}[1]{\mathbb{P}\text{r}\left[#1\right]}
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\expe}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\var}[1]{\mathbb{V}\text{ar}\left[#1\right]}
+\newcommand{\sd}[1]{\text{SD}\left[#1\right]}
+\newcommand{\cov}[1]{\mathbb{C}\text{ov}\left[#1\right]}
+\newcommand{\coefvar}[1]{\text{CV}\left[#1\right]}
+\newcommand{\diag}[1]{\text{diag}\left[#1\right]}
+\newcommand{\expo}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\ex}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\quo}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand{\comi}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\newcommand{\ra}{\sqrt}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\TP}{\text{TP}}
+\newcommand{\TN}{\text{TN}}
+\newcommand{\FP}{\text{FP}}
+\newcommand{\FN}{\text{FN}}
+%
+\def\A{\mathbf{A}}\def\a{\mathbf{a}}\def\Av{\boldsymbol{A}}\def\av{\boldsymbol{a}}
+\def\B{\mathbf{B}}\def\b{\mathbf{b}}\def\Bv{\boldsymbol{B}}\def\bv{\boldsymbol{b}}
+\def\C{\mathbf{C}}\def\c{\mathbf{c}}\def\Cv{\boldsymbol{C}}\def\cv{\boldsymbol{c}}
+\def\D{\mathbf{D}}\def\d{\mathbf{d}}\def\Dv{\boldsymbol{D}}\def\dv{\boldsymbol{d}}
+\def\E{\mathbf{E}}\def\e{\mathbf{e}}\def\Ev{\boldsymbol{E}}\def\ev{\boldsymbol{e}}
+\def\F{\mathbf{F}}\def\f{\mathbf{f}}\def\Fv{\boldsymbol{F}}\def\fv{\boldsymbol{f}}
+\def\G{\mathbf{G}}\def\g{\mathbf{g}}\def\Gv{\boldsymbol{G}}\def\gv{\boldsymbol{g}}
+\def\H{\mathbf{H}}\def\h{\mathbf{h}}\def\Hv{\boldsymbol{H}}\def\hv{\boldsymbol{h}}
+\def\I{\mathbf{I}}\def\i{\mathbf{i}}\def\Iv{\boldsymbol{I}}\def\iv{\boldsymbol{i}}
+\def\J{\mathbf{J}}\def\j{\mathbf{j}}\def\Jv{\boldsymbol{J}}\def\jv{\boldsymbol{j}}
+\def\K{\mathbf{K}}\def\k{\mathbf{k}}\def\Kv{\boldsymbol{K}}\def\kv{\boldsymbol{k}}
+\def\L{\mathbf{L}}\def\l{\mathbf{l}}\def\Lv{\boldsymbol{L}}\def\lv{\boldsymbol{l}}
+\def\M{\mathbf{M}}\def\m{\mathbf{m}}\def\Mv{\boldsymbol{M}}\def\mv{\boldsymbol{m}}
+\def\N{\mathbf{N}}\def\n{\mathbf{n}}\def\Nv{\boldsymbol{N}}\def\nv{\boldsymbol{n}}
+\def\O{\mathbf{O}}\def\o{\mathbf{o}}\def\Ov{\boldsymbol{O}}\def\ov{\boldsymbol{o}}
+\def\P{\mathbf{P}}\def\p{\mathbf{p}}\def\Pv{\boldsymbol{P}}\def\pv{\boldsymbol{p}}
+\def\Q{\mathbf{Q}}\def\q{\mathbf{q}}\def\Qv{\boldsymbol{Q}}\def\qv{\boldsymbol{q}}
+\def\R{\mathbf{R}}\def\r{\mathbf{r}}\def\Rv{\boldsymbol{R}}\def\rv{\boldsymbol{r}}
+\def\S{\mathbf{S}}\def\s{\mathbf{s}}\def\Sv{\boldsymbol{S}}\def\sv{\boldsymbol{s}}
+\def\T{\mathbf{T}}\def\t{\mathbf{t}}\def\Tv{\boldsymbol{T}}\def\tv{\boldsymbol{t}}
+\def\U{\mathbf{U}}\def\u{\mathbf{u}}\def\Uv{\boldsymbol{U}}\def\uv{\boldsymbol{u}}
+\def\V{\mathbf{V}}\def\v{\mathbf{v}}\def\Vv{\boldsymbol{V}}\def\vv{\boldsymbol{v}}
+\def\W{\mathbf{W}}\def\w{\mathbf{w}}\def\Wv{\boldsymbol{W}}\def\wv{\boldsymbol{w}}
+\def\X{\mathbf{X}}\def\x{\mathbf{x}}\def\Xv{\boldsymbol{X}}\def\xv{\boldsymbol{x}}
+\def\Y{\mathbf{Y}}\def\y{\mathbf{y}}\def\Yv{\boldsymbol{Y}}\def\yv{\boldsymbol{y}}
+\def\Z{\mathbf{Z}}\def\z{\mathbf{z}}\def\Zv{\boldsymbol{Z}}\def\zv{\boldsymbol{z}}
+%
+\def\al{\alpha}\def\alv{\boldsymbol{\alpha}}
+\def\be{\beta}\def\bev{\boldsymbol{\beta}}
+\def\ga{\gamma}\def\gav{\boldsymbol{\gamma}}
+\def\de{\delta}\def\dev{\boldsymbol{\delta}}
+\def\del{\delta}\def\delv{\boldsymbol{\delta}}
+\def\eps{\epsilon}\def\epsv{\boldsymbol{\epsilon}}
+\def\veps{\varepsilon}\def\vepsv{\boldsymbol{\varepsilon}}
+\def\ze{\zeta}\def\zev{\boldsymbol{\zeta}}
+\def\te{\theta}\def\tev{\boldsymbol{\theta}}
+\def\vte{\vartheta}\def\vtev{\boldsymbol{\vartheta}}
+\def\io{\iota}\def\iov{\boldsymbol{\iota}}
+\def\ka{\kappa}\def\kav{\boldsymbol{\kappa}}
+\def\la{\lambda}\def\lav{\boldsymbol{\lambda}}
+\def\lam{\lambda}\def\lamv{\boldsymbol{\lambda}}
+\def\vrho{\varrho}\def\vrhov{\boldsymbol{\varrho}}
+\def\si{\sigma}\def\siv{\boldsymbol{\sigma}}
+\def\sig{\sigma}\def\sigv{\boldsymbol{\sigma}}
+\def\vsi{\varsigma}\def\vsiv{\boldsymbol{\varsigma}}
+\def\ups{\upsilon}\def\upsv{\boldsymbol{\upsilon}}
+\def\vphi{\varphi}\def\vphiv{\boldsymbol{\varphi}}
+\def\om{\omega}\def\omv{\boldsymbol{\omega}}\def\omev{\boldsymbol{\omega}}
+\def\ome{\omega}
+\def\etav{\boldsymbol{\eta}}
+\def\xiv{\boldsymbol{\xi}}
+\def\piv{\boldsymbol{\pi}}
+\def\psiv{\boldsymbol{\psi}}
+\def\phiv{\boldsymbol{\phi}}
+\def\muv{\boldsymbol{\mu}}
+%
+\def\Ga{\Gamma}\def\GA{\mathbf{\Gamma}}
+\def\Gam{\Gamma}\def\GAM{\mathbf{\Gamma}}
+\def\De{\Delta}\def\DE{\mathbf{\Delta}}
+\def\Del{\Delta}\def\DEL{\mathbf{\Delta}}
+\def\Te{\Theta}\def\TE{\mathbf{\Theta}}
+\def\La{\Lambda}\def\LA{\mathbf{\Lambda}}
+\def\Lam{\Lambda}\def\LAM{\mathbf{\Lambda}}
+\def\XI{\mathbf{\Xi}}
+\def\PI{\mathbf{\Pi}}
+\def\Si{\Sigma}\def\SI{\mathbf{\Sigma}}
+\def\Sig{\Sigma}\def\SIG{\mathbf{\Sigma}}
+\def\Ups{\Upsilon}\def\UPS{\mathbf{\Upsilon}}
+\def\PHI{\mathbf{\Phi}}
+\def\PSI{\mathbf{\Psi}}
+\def\Om{\Omega}\def\OM{\mathbf{\Omega}}
+\def\Ome{\Omega}\def\OME{\mathbf{\Omega}}
+%
+\def\teh{\hat{\theta}}\def\tevh{\hat{\boldsymbol{\theta}}}
+\def\Unif{\small{\mathsf{Unif}}}
+\def\MN{\small{\mathsf{Mult}}}
+\def\Cat{\small{\mathsf{Cat}}}
+\def\Dir{\small{\mathsf{Dir}}}
+\def\DP{\small{\mathsf{DP}}}
+\def\Ber{\small{\mathsf{Ber}}}
+\def\Bin{\small{\mathsf{Bin}}}
+\def\BetaBin{\small{\mathsf{BetaBin}}}
+\def\NegBin{\small{\mathsf{NegBin}}}
+\def\Nor{\small{\mathsf{N}}}
+\def\normal{\small{\mathsf{N}}}
+\def\Bet{\small{\mathsf{Beta}}}
+\def\bet{\small{\mathsf{Beta}}}
+\def\Gamd{\small{\mathsf{Gam}}}
+\def\IGamd{\small{\mathsf{IGam}}}
+\def\IG{\small{\mathsf{IGam}}}
+\def\hyphen{\text{\textendash}}
+%
+\def\data{\text{data}}
+\def\rest{\text{rest}}
+\def\mle{\text{MLE}}
+\def\bayes{\text{bayes}}
+\def\rest{\text{rest}}
+\def\DIC{\text{DIC}}
+%
+\def\zerov{\boldsymbol{0}}
+\def\onev{\boldsymbol{1}}
+\def\onen{\boldsymbol{1}_n}
+%
+\def\reals{\mathbb{R}}
+%
+\newtheorem{theo}{Theorem}
+%
+\definecolor{violet}{rgb}{0.56, 0.0, 1.0}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{Gray}{gray}{0.9}
+
+%%% ----------------------------------------------------------------------
+% FIGURES ----------------------------------------------------------------
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%\graphicspath{{C:/PROJECT/presentation/figs/}}
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+%TITLE PAGE
+\title[]{Inferencia Estadística} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{ }
+%\newline \textbf{JASA}, Vol. 91, No. 433 (Mar., \textbf{1996}), pp. 142--153}
+
+\author[Juan Sosa]{\LARGE{Juan Sosa, PhD}} % Your name
+\institute[Universidad Externado] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+%University of California, Santa Cruz \\ % Your institution for the title page
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=.15]{./figs/logo-UE.pdf}
+\end{figure}
+}
+\date{I - 2018} % Date, can be changed to a custom date
+
+%\logo{\includegraphics[height=1.4cm]{Grateful_Slug.png}}
+
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+
+
+\begin{document}
+
+\begin{frame}
+
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+%OVERVIEW
+%\begin{frame}
+%\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+
+%\section{ }
+
+
+\begin{frame}{Inferencia Estadística}
+
+\begin{block}{Objetivo}
+	\begin{itemize}
+		\item \textbf{Caracterizar una población} con base en la información de una \textbf{muestra representativa} de la población.
+		\item \textbf{Recolectar datos} para \textbf{decrecer} la \textbf{incertidumbre} acerca de cantidades poblacionales desconocidas (\textbf{parámetros}).
+	\end{itemize}
+	
+\end{block}
+
+\begin{block}{Introducción}
+	\begin{itemize}
+		\item Una \textbf{población} consiste de todos los\textbf{ entes de interés}. ¿Por qué la mayoría de las veces no es posible hacer un \textbf{censo}?
+		\item Escoger la muestra de manera que los elementos escogidos sean \textbf{similares} a los de la población en todas aquellas\textbf{ características que son relevantes} para el estudio.
+		\item La generalización se hace sobre aquellos elementos que satisfacen tales características de similaridad (e.g., \textbf{estudios observacionales}).
+		\item El enemigo en la recolección de datos es el \textbf{sesgo} (tendencias sistemáticas hacia algo en particular).
+		\item La inferencia estadística \textbf{no es comprobable directamente}, a diferencia los \textbf{modelos predictivos}.
+	\end{itemize}
+	
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Inferencia frecuentista basada en el modelo}
+
+\begin{block}{Interpretación frecuentista de la probabilidad (J. Venn, R. von Mises)}
+	La \textbf{probabilidad} de un evento $A$ se define como la \textbf{frecuencia relativa} de su ocurrencia en \textbf{repeticiones sucesivas} (repeticiones hipotéticas o reales) del fenómeno de interés:
+	\vspace{-7pt}
+	$$
+	\pr{A} = \lim\limits_{n\to\infty} \frac{\text{\# de veces $A$ ocurre}}{n}
+	$$
+\end{block}
+
+\begin{block}{Modelo probabilístico/estocástico (R. Fisher)}
+	Los datos son producto de un \textbf{mecanismo aleatorio} indexado por un conjunto de \textbf{parámetros}. Tal mecanismo caracteriza \textbf{cómo surgen los datos}.\\
+	Ej. Distribución Bernoulli, Distribución Normal, Distribución Exponencial, etc.
+	\vspace{-3pt}
+	\begin{center}
+		\textbf{\quo{All models are wrong, but some are useful} (G. Box)}
+	\end{center}
+\end{block}
+
+\begin{block}{Objetivo}
+	\textbf{Hacer inferencia} sobre los parámetros del modelo:
+	\begin{itemize}
+		\item Estimación puntual.
+		\item Intervalos de confianza.
+		\item Pruebas de hipótesis.
+	\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Proporción poblacional}
+
+\begin{block}{Modelo}
+	El enfoque frecuentista se basa en la idea de \textbf{repeticiones hipotéticas o reales} del proceso que se estudia,
+	bajo condiciones que son lo más cercanas posibles al muestro \textbf{Independiente e Idénticamente Distribuido}
+	(IID):\\
+	\vspace{-0pt}
+	\centering $X_1,X_2,\ldots,X_n\simiid \Ber(\theta)$
+	\begin{itemize}
+		\item Resultados de un experimento aleatorio.
+		\item Muestra de una población \quo{infinita} sin reemplazo.
+	\end{itemize}
+\end{block}
+
+\begin{block}{Estimador}
+$$
+\hat{\theta} = \bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i
+$$
+\end{block}
+
+\begin{block}{Propiedades del promedio muestral $\bar{X}$}
+	$$
+	\expec{\bar{X}} = \mu \quad\quad \var{\bar{X}} = \frac{\sigma^2}{n}
+	$$
+	donde $\mu=\expec{X}$ es el \textbf{promedio poblacional} y $\sig^2=\var{X}$ es la \textbf{varianza poblacional}. 
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Teoremas límites}
+
+\begin{block}{Ley de los grandes números (D. Bernoulli, 1713; S. D. Poisson, 1837) }
+Si $X_1, X_2,\ldots$ es una sucesión infinita de variables aleatorias independientes que tienen el mismo valor esperado $\mu$ y varianza $\sigma^2$, entonces el promedio $\bs{\bar{X}}$ \textbf{converge en probabilidad a} $\bs{\mu}$. En otras palabras, para cualquier número positivo $\eps$ se tiene que \\
+\vspace{1pt}
+\centering $\lim\limits_{n\to\infty}\pr{|\bar{X}-\mu|<\eps} = 1$.
+
+\end{block}
+
+\begin{block}{Teorema del Límite Central (TLC, Lindeberg--Lévy)}
+Sea $X_1, X_2,\ldots,X_n$ un conjunto de variables aleatorias independientes e idénticamente distribuidas de una distribución con media $\mu$ y varianza $\sigma^2<\infty$. \textbf{Para $\bs{n}$ \quo{grande}, se tiene que el promedio muestral $\bs{\bar{X}}$ aproximadamente (asintóticamente) sigue una distribución Normal.} Esto es,\\
+\centering$\bar{X}\sima \Nor\left(\mu,\frac{\sigma^2}{n}\right)$
+\end{block}
+
+\begin{itemize}
+	\item El TLC solo dice algo sobre la \textbf{distribución muestral} de $\bar{X}$, no sobre la
+	distribución de $X$ en sí. 
+	\item El TLC dice que la distribución muestral de $\bar{X}$ es aproximadamente normal cuando $n$
+	es \quo{grande}. ¿Cuándo es $n$ grande? ¿Qué tan buena es esta aproximación?
+	
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Inferencia sobre la proporción poblacional (Neyman)}
+
+\begin{block}{Modelo probabilístico}
+\centering $X_1,X_2,\ldots,X_n\simiid \Ber(\theta)$
+\end{block}
+
+\begin{block}{Intervalo de confianza}
+	Dado que 
+	$$Z=\frac{\hat{\theta}-\theta}{\sqrt{\frac{\theta(1-\theta)}{n}}}\sima \normal(0,1)$$
+	de acuerdo con el \textbf{Teorema del Límite Central}, se obtiene que un \textbf{intervalo de confianza para $\bs{\theta}$ usando una confiabilidad del $\bs{100(1-\alpha)\%}$} es
+ 	$$
+	\hat{\theta} \pm z_{1-\alpha/2}\sqrt{\frac{\hat{\theta}(1-\hat{\theta})}{n}}
+	$$
+	donde $\hat{\theta} = \tfrac{1}{n}\sum_{i=1}^n x_i$ es la estimación puntual de $\theta$ y $z_{1-\alpha/2}$ es el percentíl $100(1-\alpha/2)$ de la distribución Normal estándar.\\
+	\vspace{3pt}
+	Nota: Empíricamente se ha visto que este intervalo suele ser \quo{apropiado} cuando $n\geq30$, $n\hat{\theta} \geq 5$ y $n(1-\hat{\theta}) \geq 5$.
+	
+\end{block}
+
+
+\end{frame}
+
+
+\begin{frame}{Inferencia sobre la media poblacional (Neyman)}
+
+\begin{block}{Modelo probabilístico}
+\begin{center}
+	$X_1,X_2,\ldots,X_n\simiid F$
+\end{center}
+\vspace{-7pt}
+donde $F$ es \textbf{cualquier distribución} con media $\mu$ y varianza $\sigma^2<\infty$.
+\end{block}
+
+\begin{block}{Intervalo de confianza}
+	Dado que 
+	$$Z=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sima \normal(0,1)$$
+	de acuerdo con el \textbf{Teorema del Límite Central}, se obtiene que un \textbf{intervalo de confianza para $\bs{\mu}$ usando una confiabilidad del $\bs{100(1-\alpha)\%}$} es
+	$$
+	\bar{x} \pm z_{1-\alpha/2}\,\frac{s}{\sqrt{n}}
+	$$
+	donde $\bar{x} = \tfrac{1}{n}\sum_{i=1}^n x_i$ y $s = \sqrt{\tfrac{1}{n-1}\sum_{i=1}^n (x_i-\bar{x})^2}$ son las estimaciones puntuales de $\mu$ y $\sigma$, respectivamente, y $z_{1-\alpha/2}$ es el percentíl $100(1-\alpha/2)$ de la distribución Normal estándar.	
+\end{block}
+
+
+\end{frame}
+
+
+\end{document} 

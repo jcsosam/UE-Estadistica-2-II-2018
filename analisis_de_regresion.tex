@@ -1,0 +1,747 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[usenames,dvipsnames,9pt]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color, colortbl}
+\usepackage{flafter}
+\usepackage{enumerate}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{amsthm,latexsym,array}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{rotating}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{subfigure}
+
+
+\usefonttheme[onlymath]{serif}
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+%
+\def\e#1{{\rm e}^{#1}}
+\def\exp#1{{\rm exp}{#1}}
+\def\frac#1#2{{{#1}\over{#2}}}
+\def\binom#1#2{{{#1}\choose{#2}}}
+\def\spot{$\bullet$\hspace{0.1cm}}
+\def\le{\left}
+\def\ri{\right}
+\def\pro{\propto}
+\def\prop{\propto}
+%
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\logit}{logit}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+%
+\newcommand\iid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily iid}}}{\sim}}}
+\newcommand\simiid{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily iid}}}{\sim}}}
+\newcommand\simind{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily ind}}}{\sim}}}
+\newcommand\eqd{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily d}}}{=}}}
+\newcommand{\ind}[1]{\mathbb{I}\left\{ #1 \right\}}
+\newcommand{\pr}[1]{\mathbb{P}\text{r}\left[#1\right]}
+\newcommand{\expec}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\expe}[1]{\mathbb{E}\left[#1\right]}
+\newcommand{\var}[1]{\mathbb{V}\text{ar}\left[#1\right]}
+\newcommand{\sd}[1]{\text{SD}\left[#1\right]}
+\newcommand{\cov}[1]{\mathbb{C}\text{ov}\left[#1\right]}
+\newcommand{\coefvar}[1]{\text{CV}\left[#1\right]}
+\newcommand{\diag}[1]{\text{diag}\left[#1\right]}
+\newcommand{\expo}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\ex}[1]{\exp{ \left\{ #1 \right\}}}
+\newcommand{\quo}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand{\comi}[1]{\textquotedblleft#1\textquotedblright}
+\newcommand\floor[1]{\lfloor#1\rfloor}
+\newcommand{\ra}{\sqrt}
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\TP}{\text{TP}}
+\newcommand{\TN}{\text{TN}}
+\newcommand{\FP}{\text{FP}}
+\newcommand{\FN}{\text{FN}}
+%
+\def\A{\mathbf{A}}\def\a{\mathbf{a}}\def\Av{\boldsymbol{A}}\def\av{\boldsymbol{a}}
+\def\B{\mathbf{B}}\def\b{\mathbf{b}}\def\Bv{\boldsymbol{B}}\def\bv{\boldsymbol{b}}
+\def\C{\mathbf{C}}\def\c{\mathbf{c}}\def\Cv{\boldsymbol{C}}\def\cv{\boldsymbol{c}}
+\def\D{\mathbf{D}}\def\d{\mathbf{d}}\def\Dv{\boldsymbol{D}}\def\dv{\boldsymbol{d}}
+\def\E{\mathbf{E}}\def\e{\mathbf{e}}\def\Ev{\boldsymbol{E}}\def\ev{\boldsymbol{e}}
+\def\F{\mathbf{F}}\def\f{\mathbf{f}}\def\Fv{\boldsymbol{F}}\def\fv{\boldsymbol{f}}
+\def\G{\mathbf{G}}\def\g{\mathbf{g}}\def\Gv{\boldsymbol{G}}\def\gv{\boldsymbol{g}}
+\def\H{\mathbf{H}}\def\h{\mathbf{h}}\def\Hv{\boldsymbol{H}}\def\hv{\boldsymbol{h}}
+\def\I{\mathbf{I}}\def\i{\mathbf{i}}\def\Iv{\boldsymbol{I}}\def\iv{\boldsymbol{i}}
+\def\J{\mathbf{J}}\def\j{\mathbf{j}}\def\Jv{\boldsymbol{J}}\def\jv{\boldsymbol{j}}
+\def\K{\mathbf{K}}\def\k{\mathbf{k}}\def\Kv{\boldsymbol{K}}\def\kv{\boldsymbol{k}}
+\def\L{\mathbf{L}}\def\l{\mathbf{l}}\def\Lv{\boldsymbol{L}}\def\lv{\boldsymbol{l}}
+\def\M{\mathbf{M}}\def\m{\mathbf{m}}\def\Mv{\boldsymbol{M}}\def\mv{\boldsymbol{m}}
+\def\N{\mathbf{N}}\def\n{\mathbf{n}}\def\Nv{\boldsymbol{N}}\def\nv{\boldsymbol{n}}
+\def\O{\mathbf{O}}\def\o{\mathbf{o}}\def\Ov{\boldsymbol{O}}\def\ov{\boldsymbol{o}}
+\def\P{\mathbf{P}}\def\p{\mathbf{p}}\def\Pv{\boldsymbol{P}}\def\pv{\boldsymbol{p}}
+\def\Q{\mathbf{Q}}\def\q{\mathbf{q}}\def\Qv{\boldsymbol{Q}}\def\qv{\boldsymbol{q}}
+\def\R{\mathbf{R}}\def\r{\mathbf{r}}\def\Rv{\boldsymbol{R}}\def\rv{\boldsymbol{r}}
+\def\S{\mathbf{S}}\def\s{\mathbf{s}}\def\Sv{\boldsymbol{S}}\def\sv{\boldsymbol{s}}
+\def\T{\mathbf{T}}\def\t{\mathbf{t}}\def\Tv{\boldsymbol{T}}\def\tv{\boldsymbol{t}}
+\def\U{\mathbf{U}}\def\u{\mathbf{u}}\def\Uv{\boldsymbol{U}}\def\uv{\boldsymbol{u}}
+\def\V{\mathbf{V}}\def\v{\mathbf{v}}\def\Vv{\boldsymbol{V}}\def\vv{\boldsymbol{v}}
+\def\W{\mathbf{W}}\def\w{\mathbf{w}}\def\Wv{\boldsymbol{W}}\def\wv{\boldsymbol{w}}
+\def\X{\mathbf{X}}\def\x{\mathbf{x}}\def\Xv{\boldsymbol{X}}\def\xv{\boldsymbol{x}}
+\def\Y{\mathbf{Y}}\def\y{\mathbf{y}}\def\Yv{\boldsymbol{Y}}\def\yv{\boldsymbol{y}}
+\def\Z{\mathbf{Z}}\def\z{\mathbf{z}}\def\Zv{\boldsymbol{Z}}\def\zv{\boldsymbol{z}}
+%
+\def\al{\alpha}\def\alv{\boldsymbol{\alpha}}
+\def\be{\beta}\def\bev{\boldsymbol{\beta}}
+\def\ga{\gamma}\def\gav{\boldsymbol{\gamma}}
+\def\de{\delta}\def\dev{\boldsymbol{\delta}}
+\def\del{\delta}\def\delv{\boldsymbol{\delta}}
+\def\eps{\epsilon}\def\epsv{\boldsymbol{\epsilon}}
+\def\veps{\varepsilon}\def\vepsv{\boldsymbol{\varepsilon}}
+\def\ze{\zeta}\def\zev{\boldsymbol{\zeta}}
+\def\te{\theta}\def\tev{\boldsymbol{\theta}}
+\def\vte{\vartheta}\def\vtev{\boldsymbol{\vartheta}}
+\def\io{\iota}\def\iov{\boldsymbol{\iota}}
+\def\ka{\kappa}\def\kav{\boldsymbol{\kappa}}
+\def\la{\lambda}\def\lav{\boldsymbol{\lambda}}
+\def\lam{\lambda}\def\lamv{\boldsymbol{\lambda}}
+\def\vrho{\varrho}\def\vrhov{\boldsymbol{\varrho}}
+\def\si{\sigma}\def\siv{\boldsymbol{\sigma}}
+\def\sig{\sigma}\def\sigv{\boldsymbol{\sigma}}
+\def\vsi{\varsigma}\def\vsiv{\boldsymbol{\varsigma}}
+\def\ups{\upsilon}\def\upsv{\boldsymbol{\upsilon}}
+\def\vphi{\varphi}\def\vphiv{\boldsymbol{\varphi}}
+\def\om{\omega}\def\omv{\boldsymbol{\omega}}\def\omev{\boldsymbol{\omega}}
+\def\ome{\omega}
+\def\etav{\boldsymbol{\eta}}
+\def\xiv{\boldsymbol{\xi}}
+\def\piv{\boldsymbol{\pi}}
+\def\psiv{\boldsymbol{\psi}}
+\def\phiv{\boldsymbol{\phi}}
+\def\muv{\boldsymbol{\mu}}
+%
+\def\Ga{\Gamma}\def\GA{\mathbf{\Gamma}}
+\def\Gam{\Gamma}\def\GAM{\mathbf{\Gamma}}
+\def\De{\Delta}\def\DE{\mathbf{\Delta}}
+\def\Del{\Delta}\def\DEL{\mathbf{\Delta}}
+\def\Te{\Theta}\def\TE{\mathbf{\Theta}}
+\def\La{\Lambda}\def\LA{\mathbf{\Lambda}}
+\def\Lam{\Lambda}\def\LAM{\mathbf{\Lambda}}
+\def\XI{\mathbf{\Xi}}
+\def\PI{\mathbf{\Pi}}
+\def\Si{\Sigma}\def\SI{\mathbf{\Sigma}}
+\def\Sig{\Sigma}\def\SIG{\mathbf{\Sigma}}
+\def\Ups{\Upsilon}\def\UPS{\mathbf{\Upsilon}}
+\def\PHI{\mathbf{\Phi}}
+\def\PSI{\mathbf{\Psi}}
+\def\Om{\Omega}\def\OM{\mathbf{\Omega}}
+\def\Ome{\Omega}\def\OME{\mathbf{\Omega}}
+%
+\def\teh{\hat{\theta}}\def\tevh{\hat{\boldsymbol{\theta}}}
+\def\Unif{\small{\mathsf{Unif}}}
+\def\MN{\small{\mathsf{Mult}}}
+\def\Cat{\small{\mathsf{Cat}}}
+\def\Dir{\small{\mathsf{Dir}}}
+\def\DP{\small{\mathsf{DP}}}
+\def\Ber{\small{\mathsf{Ber}}}
+\def\Bin{\small{\mathsf{Bin}}}
+\def\BetaBin{\small{\mathsf{BetaBin}}}
+\def\NegBin{\small{\mathsf{NegBin}}}
+\def\Nor{\small{\mathsf{N}}}
+\def\normal{\small{\mathsf{N}}}
+\def\Bet{\small{\mathsf{Beta}}}
+\def\bet{\small{\mathsf{Beta}}}
+\def\Gamd{\small{\mathsf{Gam}}}
+\def\IGamd{\small{\mathsf{IGam}}}
+\def\IG{\small{\mathsf{IGam}}}
+\def\hyphen{\text{\textendash}}
+%
+\def\data{\text{data}}
+\def\rest{\text{rest}}
+\def\mle{\text{mle}}
+\def\bayes{\text{bayes}}
+\def\rest{\text{rest}}
+\def\DIC{\text{DIC}}
+%
+\def\zerov{\boldsymbol{0}}
+\def\onev{\boldsymbol{1}}
+\def\onen{\boldsymbol{1}_n}
+%
+\def\reals{\mathbb{R}}
+%
+\newtheorem{theo}{Theorem}
+%
+\definecolor{violet}{rgb}{0.56, 0.0, 1.0}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+\definecolor{Gray}{gray}{0.9}
+
+%%% ----------------------------------------------------------------------
+% FIGURES ----------------------------------------------------------------
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%\graphicspath{{C:/PROJECT/presentation/figs/}}
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+%TITLE PAGE
+\title[]{Análisis de Regresión Lineal Múltiple} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{ }
+%\newline \textbf{JASA}, Vol. 91, No. 433 (Mar., \textbf{1996}), pp. 142--153}
+
+\author[Juan Sosa]{\LARGE{Juan Sosa, PhD}} % Your name
+\institute[Universidad Externado] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+%University of California, Santa Cruz \\ % Your institution for the title page
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.15]{./figs/logo-UE.pdf}
+\end{figure}
+}
+\date{I - 2018} % Date, can be changed to a custom date
+
+%\logo{\includegraphics[height=1.4cm]{Grateful_Slug.png}}
+
+
+%\AtBeginSection[]
+%{
+%  \begin{frame}<beamer>
+%    \frametitle{Outline}
+%    \tableofcontents[currentsection]
+%  \end{frame}
+%}
+
+
+
+\begin{document}
+
+\begin{frame}
+
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+
+%OVERVIEW
+%\begin{frame}
+%\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+
+%\section{ }
+
+
+\begin{frame}{Análisis de Regresión Lineal Múltiple}
+
+\begin{block}{Objetivo}
+\begin{itemize}
+    \item Caracterizar o explicar el valor medio de una variable [dependiente] bajo condiciones específicas de otra(s) variable(s) [independientes].
+\end{itemize}
+\end{block}
+
+\begin{block}{Observaciones}
+\begin{itemize}
+  \item Establecer \textbf{asociación}, mas \textbf{no causalidad}.
+  \item Aunque predecir [el valor promedio] no es el centro de atención, pero es posible hacerlo.
+  \item Modelo [de carácter probabilístico] con muchas posibilidades!
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Modelo}
+
+\begin{block}{Estructura del conjunto de datos}
+\begin{itemize}
+  \item Matriz de datos $\X$ de tamaño $n\times p$ : variables independientes/explicativas.
+  \item Vector de datos $\yv$\,\, de tamaño $n\times 1$ : variable dependiente/explicada/respuesta.
+\end{itemize}
+\end{block}
+
+\begin{block}{Formulación}
+\vspace{-6pt}
+\begin{align*}
+y_1 &= \beta_{1}x_{1,1} + \beta_{2}x_{1,2} + \ldots + \beta_{p}x_{1,p} + \epsilon_1\\
+y_2 &= \beta_{1}x_{2,1} + \beta_{2}x_{2,2} + \ldots + \beta_{p}x_{2,p} + \epsilon_2\\
+&\,\,\,\hspace{3cm}\vdots \\
+y_n &= \beta_{1}x_{n,1} + \beta_{2}x_{n,2} + \ldots + \beta_{p}x_{n,p} + \epsilon_n
+\end{align*}
+$$
+\begin{bmatrix}
+  y_1 \\
+  y_2 \\
+  \vdots \\
+  y_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+  x_{1,1} & x_{1,2} & \cdots & x_{1,p} \\
+  x_{2,1} & x_{2,2} & \cdots & x_{2,p} \\
+  \vdots & \vdots & \vdots & \vdots \\
+  x_{n,1} & x_{n,2} & \cdots & x_{n,p} \\
+\end{bmatrix}
+\begin{bmatrix}
+  \beta_1 \\
+  \beta_2 \\
+  \vdots \\
+  \beta_p \\
+\end{bmatrix}
++
+\begin{bmatrix}
+  \eps_1 \\
+  \eps_2 \\
+  \vdots \\
+  \eps_n \\
+\end{bmatrix}
+$$
+
+$$
+\yv = \X\bev + \epsv
+$$
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Modelo (cont.)}
+
+\begin{block}{Terminología}
+\begin{itemize}
+    \item $x$ : variables independientes/explicativas.
+    \item $y$ : variable dependiente/explicada/respuesta.
+    \item $\beta$ : coeficientes de regresión.
+    \item $\eps$ : errores/perturbaciones aleatorias.
+\end{itemize}
+\end{block}
+
+\begin{block}{Supuestos}
+\centering
+$\epsv\sim \Nor(\zerov,\sig^2\I_n)$ donde $\I_n$ es la matriz identidad de tamaño $n$.
+\end{block}
+
+
+\begin{block}{Observaciones}
+\begin{itemize}
+  \item Los parámetros del modelo son $\beta_1,\beta_2,\ldots,\beta_p$ y $\sig^2$.
+  \item Las variables explicativas no tienen carácter aleatorio y pueden ser continuas o categóricas.
+  \item El supuesto de normalidad y varianza constante no es una \quo{camisa de fuerza}.
+  \item El carácter aleatorio del modelo recae en la variable dependiente a través del error.
+  \item Los errores se asumen como independientes.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Implicaciones del modelo}
+
+\begin{block}{}
+Como $\yv = \X{\color{blue} \bev} + \epsv$ se obtiene que $\yv\mid\X \sim \Nor(\X{\color{blue}\bev},\sig^2\I_n)$ y además
+\begin{align*}
+  \expec{y_i\mid \xv_i} &= {\color{blue}\beta_{1}}x_{i,1} + {\color{blue}\beta_{2}}x_{i,2} + \ldots + {\color{blue}\beta_{p}}x_{i,p}={\color{blue}\bev^T}\xv_i\\
+  \var{y_i\mid \xv_i} &= \sig^2
+\end{align*}
+\end{block}
+
+\begin{block}{Interpretación de $\beta_i$}
+Cambio en $y$ correspondiente a una unidad de cambio en $x_i$ cuando el resto de las variables explicativas se mantienen constantes.
+\end{block}
+
+\begin{block}{Consecuencias}
+\begin{itemize}
+  \item El modelo caracteriza el valor medio de $y$ para valores dados de $x$.
+  \item La linealidad se encuentra en los coeficientes de regresión.
+  \item La interpretación de los coeficientes no está dada en términos de cargas/pesos.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Estimación}
+
+Encontrar los valores de $\bev$ y $\sig^2$ para reproducir $\yv$ tan precisamente como sea posible.
+
+\begin{block}{Método de máxima verosimilitud}
+Encontrar los valores de $\bev$ y $ \sig^2$ que maximicen (optimicen) la función de verosimilitud:
+$$
+\prod_{i=1}^n \frac{1}{\sqrt{2\pi}\sig} \, \ex{-\frac{1}{2\sig^2}\left(y_i - \bev^T\xv_i\right)^2}
+$$
+\end{block}
+
+\begin{block}{Método de mínimos cuadrados ordinarios}
+Encontrar los valores de $\bev$ que minimicen (optimicen) la función cuadrática:
+$$
+\sum_{i=1}^n \left(y_i - \bev^T\xv_i\right)^2
+$$
+\end{block}
+
+\begin{block}{Estimador de $\bev$}
+$$
+\hat{\bev} = ( \X^T\X )^{-1}\X^T\yv
+$$
+$$
+\hat{\bev}\sim\Nor\left(\bev,\sig^2(\X^T\X)^{-1}\right)
+$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Estimación (cont.)}
+
+\begin{block}{Valores ajustados/predichos}
+$$
+\hat{\yv} = \X\hat{\bev} =  {\color{blue} \X ( \X^T \X )^{-1}\X^T} \yv = {\color{blue} \H}\yv
+$$
+Estimador del valor medio de $\yv$.
+\end{block}
+
+\begin{block}{Residuales}
+$$
+\rv = \yv - \hat{\yv} = \I_n\yv - \H\yv = (\I_n - \H)\yv
+$$
+Permiten evaluar la \textbf{bondad de ajuste} y los \textbf{supuestos} del modelo.
+\end{block}
+
+\begin{block}{Sumas de cuadrados}
+La {\color{blue} variabilidad total de la variable respuesta} se descompone en la {\color{ForestGreen} variabilidad debida a los valores ajustados} y la {\color{red} variabilidad debida a los residuales}:
+\begin{align*}
+{\color{blue} \sum_{i=1}^n (y_i - \bar{y})^2} &= {\color{ForestGreen} \sum_{i=1}^n (\hat{y}_i - \bar{y})^2} + {\color{red} \sum_{i=1}^n (y_i - \hat{y}_i)^2 }\\
+{\color{blue} SCT }  &= {\color{ForestGreen} SCR} + {\color{red} SCE }
+\end{align*}
+Observación: ${\color{red} SCE}$ es la cantidad que se debe minimizar para ajustar el modelo.
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Estimación (cont.)}
+
+\begin{block}{Coeficiente de determinación}
+$$
+R^2 = \frac{SCR}{SCT} = 1- \frac{SCE}{SCT}
+$$
+Proporción de la variabilidad total que explica el modelo ajustado.
+\end{block}
+
+\begin{block}{Coeficiente de determinación ajustado}
+$$
+R_a^2 = 1 - \tfrac{n-1}{n-p}(1-R^2)
+$$
+\end{block}
+
+\begin{block}{Estimador insesgado de $\sig^2$}
+$$
+\hat{\sig}^2 = \frac{SCE}{n - p} = CME
+$$
+$CME$ : cuadrado medio del error.
+\end{block}
+
+\begin{block}{Observación}
+Para apreciar el valor agradado de una regresión se recomienda comparar $s_y$ con $\hat{\sig}$.
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Inferencia}
+
+\begin{block}{Significancia global}
+Existe una relación significativa entre la variable respuesta y las variables explicativas en general?
+$$
+H_0:\be_1 = \be_2 = \ldots = \be_p = 0
+\quad\text{frente a}\quad
+H_1:\be_j\neq 0\text{ para algún $j$}
+$$
+Estadístico de prueba:
+$
+F = \frac{{\color{ForestGreen} SCR/(p-1)}}{{\color{red}SCE/(n-p)}}=\frac{{\color{ForestGreen}CMR}}{{\color{red}CME}}\sim F_{{\color{ForestGreen}p-1},{\color{red}n-p}}
+$
+\end{block}
+
+\begin{block}{Significancia particular}
+Existe una relación significativa entre la variable respuesta y una variable explicativa en particular?
+$$
+H_0:\be_i = 0
+\quad\text{frente a}\quad
+H_1:\be_i\neq 0
+$$
+Estadístico de prueba:
+$
+t =\frac{\hat{\be}_i}{s_{\hat{\be}_i}}\sim t_{n-p}
+$
+
+Intervalo de confianza:
+$
+\hat{\be} \pm t_{n-p}\, s_{\hat{\be}_i}
+$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Inferencia (cont.)}
+
+\begin{block}{Observación promedio para $\xv_0$}
+$$
+\hat{\bev}^T\xv_0 \pm t_{n-p}\,\hat{\sig}\sqrt{\xv_0^T(\X^T\X)^{-1}\xv_0}
+$$
+
+\end{block}
+
+\begin{block}{Observación particular para $\xv_0$}
+$$
+\hat{\bev}^T\xv_0 \pm t_{n-p}\,\hat{\sig}\sqrt{1 + \xv_0^T(\X^T\X)^{-1}\xv_0}
+$$
+\end{block}
+
+\begin{block}{Observación}
+La incertidumbre es mayor cuando se predice una observación particular que al predecir la respuesta media.
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Multicolinealidad}
+
+\begin{block}{}
+\centering
+Correlación entre las variables explicativas, i.e, información redundante en el modelo.
+\end{block}
+
+\begin{block}{Observaciones}
+\begin{itemize}
+  \item Sobre carga de información.
+  \item Una correlación absoluta mayor a 0.7 sugiere problemas de este estilo.
+  \item Hay un aumento del error estándar de los coeficientes de regresión.
+  \item Se hace difícil determinar la significancia de las variables explicativas en particular.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Validación del modelo}
+
+\begin{block}{Supuestos}
+\begin{itemize}
+  \item $\expec{\eps_i} = 0$.
+  \item $\var{\eps_i} = \sig^2$.
+  \item La distribución de los errores es normal.
+  \item Los errores son mutuamente independientes.
+\end{itemize}
+\end{block}
+
+\begin{block}{Residuales estandarizados}
+$$
+r^*_i = \frac{r_i}{{\color{blue} s_{r_i}}} = \frac{r_i}{{\color{blue}\hat{\sig}\sqrt{1-h_{ii}}}}
+$$
+\end{block}
+
+\begin{block}{Recomendaciones}
+\begin{itemize}
+  \item Histograma y gráfico cuantil-cuantil (\textit{qqplot}) de los residuales (normalidad).
+  \item Graficar residuales (estandarizados) frente a valores predichos (varianza constante).
+  \item Graficar residuales (estandarizados) frente a cada variable explicada (tendencias).
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}{Outliers}
+
+\begin{block}{Definición}
+Observación que diverge la tendencia general de la data. Hacen crecer el CME y por lo tanto los margenes de error de los intervalos de confianza.
+\end{block}
+
+\begin{block}{Residuales estudentizados}
+$$
+\tilde{r}_i = \frac{y_i-\hat{y}_i}{\hat{\sig}_{(i)}\sqrt{1-h_{ii}}}
+$$
+\end{block}
+
+\begin{block}{Detección}
+Una observación se considerada (potencialmente) como outlier si:
+$$
+|r^*_i| > 2\quad\text{o}\quad|\tilde{r}_i| > 3
+$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Observación influyentes}
+
+\begin{block}{Definición}
+\centering
+Observación que cambia sustancialmente el análisis cuando hace parte de la data.
+\end{block}
+
+\begin{block}{DFFITS (\textit{difference in fits})}
+$$
+DFFITS_i = \frac{\hat{y}_i - \hat{y}_{(i)}}{\hat{\sig}_{(i)}\sqrt{h_{ii}}}
+$$
+\end{block}
+
+\begin{block}{Distancia de Cook}
+$$
+D_i = \frac{(y_i - \hat{y}_i)^2}{p\,\hat{\sig}^2}\,\frac{h_{ii}}{(1-h_{ii})^2}
+$$
+\end{block}
+
+\begin{block}{Detección}
+Una observación se considerada (potencialmente) como influyente si:
+$$
+DFFITS_i > 2\sqrt{\tfrac{p}{n-p}} \quad\text{o}\quad D_i > 1
+$$
+\end{block}
+
+\end{frame}
+
+
+
+\begin{frame}{Observaciones}
+
+\begin{block}{Selección de variables}
+\begin{itemize}
+  \item \textit{Forward regression}.
+  \item \textit{Backward regression}.
+  \item \textit{Stepwise regression}.
+\end{itemize}
+\end{block}
+
+
+\begin{block}{Comparación de modelos}
+\begin{itemize}
+  \item Criterio de información de Akaike (AIC).
+  \item Criterio de información Bayesiano (BIC)
+  \item Pruebas de hipótesis para modelos anidados. 
+\end{itemize}
+\end{block}
+
+\begin{block}{Todo tipo de variables explicativas}
+\begin{itemize}
+  \item Variables dummy.
+  \item Variables polinómicas.
+\end{itemize}
+\end{block}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Alternativas}
+\begin{itemize}
+  \item Transformar la variable respuesta (logaritmo, raíz cuadrada, Box-Cox).
+  \item Regresión lineal general.
+  \item Regresión rígida.
+  \item Regresión Lasso.
+  \item Regresión ElasticNet.
+  \item Regresión no lineal.
+  \item Regresión no paramétrica.
+  \item Regresión cuantílica.
+  \item Regresión robusta.
+  \item Modelos lineales generalizados.
+\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+\end{document} 
